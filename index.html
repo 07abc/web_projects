@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+    html, body {
+    margin:0;
+    height:100%;
+  }
+
+  h1 {
+      background-color: yellow;
+      text-align: center;
+      margin: 0%;
+      margin-bottom: 4%;
+  }
+
+  textarea {
+      margin-left: auto;
+      margin-right: auto;
+      padding: auto;
+      display: block;
+      width: 95%;
+      height: 40%;
+  }
+
+  div {
+      text-align: center;
+      margin: 2%;
+  }
+  </style>
+
+</head>
+<body>
+  <h1>Attendance Filter</h1>
+  <textarea id="raw_text" placeholder="Enter the text from chat box"></textarea>
+  <div><button type="button" id="btn">Submit</button></div>
+  <textarea id="output"></textarea>
+  
+  
+  <script>
+    let text_area = document.getElementById("raw_text")
+    let button = document.getElementById("btn")
+    let output = document.getElementById("output")
+
+    let temp
+    let process = () => {
+        output.value = ""
+        //console.log(text_area.value.match(/\d{9}|\d{7}/g).sort().toString())
+        temp = text_area.value.match(/\d{9}|\d{7}/g).sort();
+        for(let element of temp) {
+            output.value += element + "\n";
+        }
+    }
+
+    button.addEventListener("click", process)
+
+    // console.log(text_area)
+    // console.log(button)
+    // console.log(output)
+  </script>
+</body>
+</html>
