@@ -50,9 +50,9 @@
     let process = () => {
         output.value = ""
         //console.log(text_area.value.match(/\d{9}|\d{7}/g).sort().toString())
-        temp = text_area.value.match(/\d{9}|\d{7}/g).sort();
+        temp = new Set(text_area.value.match(/\d{9}|\d{7}/g).sort())
         for(let element of temp) {
-            output.value += element + "\n";
+            output.value += element + "\n"
         }
     }
 
